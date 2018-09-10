@@ -1,0 +1,549 @@
+gs_back_office_homepage:
+    path:     /Back/{id}
+    defaults: { _controller: BackOfficeBundle:Default:accueil }
+
+_ajoutEns:
+    path:     /ajoutEns/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:ajoutEns }
+
+_ajoutClasse:
+    path: /ajoutClasse/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:ajoutClasse  }
+
+_ajoutMatiere:
+    path: /ajoutMatiere/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:ajoutMatiere }
+
+_ajoutEleve:
+    path: /ajoutEleve/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:ajoutEleve }
+
+_ajoutParent:
+    path: /ajoutParent/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:ajoutParent  }
+
+_afficheEns:
+    path: /afficheEns/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:afficheEns }
+
+_afficheElv:
+    path: /afficheElv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:afficheElv }
+
+_affichePar:
+    path: /affichePar/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:affichePar }
+
+_afficheClass:
+    path: /afficheClass/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:afficheClass }
+
+_afficheMat:
+    path: /afficheMat/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:afficheMat }
+
+_affDetEleve:
+    path: /affDetEleve/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:affDetEleve  }
+
+_modifEleve:
+    path: /modifEleve/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifEleve }
+
+_suppEleve:
+    path: /suppEleve/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:suppEleve  }
+
+_affDetEns:
+    path: /affDetEns/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:affDetEns  }
+
+_modifEns:
+    path: /modifEns/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifEns }
+
+_suppEns:
+    path: /suppEns/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:suppEns  }
+
+_affDetParent:
+    path: /affDetParent/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:affDetParent }
+
+_modifParent:
+    path: /modifParent/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifParent  }
+
+_suppParent:
+    path: /suppParent/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:suppParent }
+
+_modifMatiere:
+    path: /modifMatiere/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifMatiere }
+
+_suppMatiere:
+    path: /suppMatiere/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:suppMatiere  }
+
+_ajaxClasse:
+    path: /ajaxClasse
+    defaults: { _controller:  BackOfficeBundle:Default:ajaxClasse }
+
+_histEleve:
+    path: /histEleve/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:histEleve  }
+
+_restaurerEleve:
+    path: /restaurerEleve/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:restaurerEleve }
+
+_suppDefEleve:
+    path: /suppDefEleve/{id}/{idE}
+    defaults: { _controller: BackOfficeBundle:Default:suppDefEleve  }
+
+_histClasse:
+    path:   /histClasse/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:histClasse  }
+
+_restaurerClasse:
+    path: /restaurerClasse/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:restaurerClasse  }
+
+_suppDefClasse:
+    path: /suppDefClasse/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:suppDefClasse  }
+
+_histEnseignant:
+    path: /histEnseignant/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:histEnseignant }
+
+_restaurerEnseignant:
+    path: /restaurerEnseignant/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:restaurerEnseignant  }
+
+_suppDefEnseignant:
+    path: /suppDefEnseignant/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:suppDefEnseignant  }
+
+_histMatiere:
+    path: /histMatiere/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:histMatiere  }
+
+_restaurerMatiere:
+    path: /restaurerMatiere/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:restaurerMatiere }
+
+_suppDefMatiere:
+    path: /suppDefMatiere/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:suppDefMatiere }
+
+_histParent:
+    path: /histParent/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:histParent }
+
+_restaurerParent:
+    path: /restaurerParent/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:restaurerParent  }
+
+_suppDefParent:
+    path: /suppDefParent/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:suppDefParent  }
+
+_rechercheEns:
+    path: /rechercheEns/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:rechercheEns }
+
+_nomEns:
+    path: /nomEns
+    defaults: { _controller:  BackOfficeBundle:Default:nomEns  }
+
+_prenomEns:
+    path: /prenomEns
+    defaults: { _controller:  BackOfficeBundle:Default:prenomEns  }
+
+_rechercheEleve:
+    path: /rechercheEleve/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:rechercheEleve }
+
+_nomEleve:
+    path: /nomEleve
+    defaults: { _controller:  BackOfficeBundle:Default:nomEleve }
+
+_prenomEleve:
+    path: /prenomEleve
+    defaults: { _controller:  BackOfficeBundle:Default:prenomEleve  }
+
+_rechercheParent:
+    path: /rechercheParent/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:rechercheParent  }
+
+_nomParent:
+    path: /nomParent
+    defaults: { _controller:  BackOfficeBundle:Default:nomParent  }
+
+_prenomParent:
+    path: /prenomParent
+    defaults: { _controller:  BackOfficeBundle:Default:prenomParent }
+
+_rechercheMatiere:
+    path: /rechercheMatiere/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:rechercheMatiere }
+
+_nomMatiere:
+    path: /nomMatiere
+    defaults: { _controller:  BackOfficeBundle:Default:nomMatiere }
+
+_prenomMatiere:
+    path: /prenomMatiere
+    defaults: { _controller:  BackOfficeBundle:Default:prenomMatiere  }
+
+_nomClasse:
+    path: /nomClasse
+    defaults: { _controller:  BackOfficeBundle:Default:nomClasse  }
+
+_anneeClasse:
+    path: /anneeClasse
+    defaults: { _controller:  BackOfficeBundle:Default:anneeClasse  }
+
+_rechercheClasse:
+    path: /rechercheClasse/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:rechercheClasse }
+
+_ajaxEnsClasse:
+    path: /ajaxEnsClasse
+    defaults: { _controller:  BackOfficeBundle:Default:ajaxEnsClasse  }
+
+_modifClasse:
+    path: /modifClasse/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifClasse  }
+
+_affDetClasse:
+    path: /affDetClasse/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:affDetClasse }
+
+_suppClasse:
+    path: /suppClasse/{id}/{idE}
+    defaults:  { _controller:  BackOfficeBundle:Default:suppClasse }
+
+_affAnClasse:
+    path: /affAnClasse
+    defaults: { _controller:  BackOfficeBundle:Default:affAnClasse  }
+
+_modifEns2:
+    path: /modifEns2/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifEns2  }
+
+_modifEleve2:
+    path: /modifEleve2/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifEleve2  }
+
+_modifParent2:
+    path: /modifParent2/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifParent2 }
+
+_modifMatiere2:
+    path: /modifMatiere2/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifMatiere2  }
+
+_modifClasse2:
+    path: /modifClasse2/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifClasse2 }
+
+_espaceEns:
+    path: /espaceEns/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:espaceEns  }
+
+_ajoutDoc:
+    path: /ajoutDoc/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:ajoutDoc }
+
+_ajaxDoc:
+    path: /ajaxDoc
+    defaults:  { _controller:  BackOfficeBundle:Default:ajaxDoc  }
+
+_afficheDoc:
+    path: /afficheDoc/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:afficheDoc }
+
+_detDoc:
+    path: /detDoc/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:detDoc }
+
+_detDocEns:
+    path: /detDocEns/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:detDocEns }
+
+_suppDoc:
+    path: /suppDoc/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:suppDoc  }
+
+_modifDoc:
+    path: /modifDoc/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifDoc }
+
+_rechDoc:
+    path: /rechDoc/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:rechDoc  }
+
+_nomDoc:
+    path: /nomDoc
+    defaults: { _controller:  BackOfficeBundle:Default:nomDoc }
+
+_modifDoc2:
+    path: /modifDoc2/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifDoc2  }
+
+_ajoutNote:
+    path: /ajoutNote/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:ajoutNote  }
+
+_afficheNote:
+    path: /afficheNote/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:afficheNote  }
+
+_modifNote:
+    path: /modifNote/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modifNote  }
+
+_classeEns:
+    path: /classeEns/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:classeEns  }
+
+_convParent:
+    path: /convParent/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:convParent }
+
+_ajaxConv:
+    path: /ajaxConv
+    defaults: { _controller:  BackOfficeBundle:Default:ajaxConv }
+
+_detConv:
+    path: /detConv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:detConv  }
+
+_envoiMail:
+    path: /envoiMail/{id}/{c}
+    defaults: { _controller:  BackOfficeBundle:Default:envoiMail  }
+
+_afficheConv:
+    path: /afficheConv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:afficheConv  }
+
+_rechercheConv:
+    path: /rechercheConv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:rechercheConv  }
+
+_suppConv:
+    path: /suppConv/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:suppConv }
+
+_profilEns:
+    path: /profilEns/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:profilEns }
+
+_notifEns:
+    path: /notifEns/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:notifEns }
+
+_espacePar:
+    path: /espacePar/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:espacePar  }
+
+_notifPar:
+    path: /notifPar/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:notifPar }
+
+_accepter:
+    path: /accepter/{id}/{idP}
+    defaults: { _controller:  BackOfficeBundle:Default:accepter }
+
+_refuser:
+    path: /refuser/{id}/{idP}
+    defaults: { _controller:  BackOfficeBundle:Default:refuser  }
+
+_detRefus:
+    path: /detRefus/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:detRefus }
+
+_profilPar:
+    path: /profilPar/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:profilPar  }
+
+_emploiPar:
+    path: /emploiPar/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:emploiPar  }
+
+_notePar:
+    path: /notePar/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:notePar  }
+
+_espaceElv:
+    path: /espaceElv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:espaceElv  }
+
+_profilElv:
+    path: /profilElv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:profilElv  }
+
+_noteElv:
+    path: /noteElv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:noteElv  }
+
+_docElv:
+    path: /docElv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:docElv }
+
+_rechDocElv:
+    path: /rechDocElv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:rechDocElv }
+
+_planExam:
+    path: /planExam/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:planExam }
+
+_planExamElv:
+    path: /planExamElv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:planExamElv  }
+
+_planExamPar:
+    path: /planExamPar/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:planExamPar  }
+
+_ajoutAbs:
+    path: /ajoutAbs/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:ajoutAbs }
+
+_afficheAbs:
+    path: /afficheAbs/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:afficheAbs }
+
+_suppAbs:
+    path: /suppAbs/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:suppAbs  }
+
+_afficheAbsElv:
+    path: /afficheAbsElv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:afficheAbsElv  }
+
+_afficheAbsPar:
+    path: /afficheAbsPar/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:afficheAbsPar  }
+
+_modAbs:
+    path: /modAbs/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modAbs }
+
+_modLigne:
+    path: /modLigne/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modLigne }
+
+_modLigne2:
+    path: /modLigne2/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:modLigne2 }
+
+_suppLigne:
+    path: /suppLigne/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:suppLigne  }
+
+_suppLigne2:
+    path: /suppLigne2/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:suppLigne2  }
+
+_ajoutLigne:
+    path: /ajoutLigne/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:ajoutLigne }
+
+_ajoutLigne2:
+    path: /ajoutLigne2/{id}/{idE}
+    defaults: { _controller:  BackOfficeBundle:Default:ajoutLigne2 }
+
+_loginE:
+    path: /loginE
+    defaults:  { _controller:  BackOfficeBundle:Default:loginE }
+
+_loginEn:
+    path: /loginEn
+    defaults:  { _controller:  BackOfficeBundle:Default:loginEn }
+
+_loginP:
+    path: /loginP
+    defaults:  { _controller:  BackOfficeBundle:Default:loginP }
+
+_loginA:
+    path: /loginA
+    defaults:  { _controller:  BackOfficeBundle:Default:loginA }
+
+_home:
+    path: /home
+    defaults: { _controller:  BackOfficeBundle:Default:home }
+
+_chmodEns:
+    path: /chmodEns/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:chmodEns }
+
+_chmodElv:
+    path: /chmodElv/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:chmodElv }
+
+_chmodPar:
+    path: /chmodPar/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:chmodPar }
+
+_liaisonAdmin:
+    path: /liaisonAdmin/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:liaisonAdmin }
+
+_ecoleAccueil:
+    path: /ecoleAccueil
+    defaults: { _controller:  BackOfficeBundle:Default:ecoleAccueil }
+
+_ajoutEcole:
+    path: /ajoutEcole
+    defaults: { _controller:  BackOfficeBundle:Default:ajoutEcole }
+
+_afficheEcole:
+    path: /afficheEcole
+    defaults: { _controller:  BackOfficeBundle:Default:afficheEcole }
+
+_modifEcole:
+    path: /modifEcole/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:modifEcole }
+
+_suppEcole:
+    path: /suppEcole/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:suppEcole  }
+
+_histEcole:
+    path: /histEcole
+    defaults: { _controller:  BackOfficeBundle:Default:histEcole  }
+
+_suppDefEcole:
+    path: /suppDefEcole/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:suppDefEcole }
+
+_restaurerEcole:
+    path: /restaurerEcole/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:restaurerEcole }
+
+_rechercheEcole:
+    path: /rechercheEcole
+    defaults: { _controller:  BackOfficeBundle:Default:rechercheEcole }
+
+_usernameEcole:
+    path: /usernameEcole
+    defaults: { _controller:  BackOfficeBundle:Default:usernameEcole  }
+
+_adresseEcole:
+    path: /usernameEcole
+    defaults: { _controller:  BackOfficeBundle:Default:usernameEcole  }
+
+_modifEcole2:
+    path: /modifEcole2/{id}
+    defaults: { _controller:  BackOfficeBundle:Default:modifEcole2  }
+
+_propos:
+    path: /propos
+    defaults: { _controller:  BackOfficeBundle:Default:propos }
+
+

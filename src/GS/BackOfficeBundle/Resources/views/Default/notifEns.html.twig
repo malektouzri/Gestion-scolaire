@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    {% block head %}
+    {% endblock %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="{{ asset('templateFront/assets/css/main.css') }}" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <a href="{{ path('_espaceEns',{'id':ens.id}) }}" class="logo"><strong>Gestion </strong>Scolaire</a>
+                <ul class="actions small" style="margin-left: 600px">
+                    <li>  <a href="{{ path('_home') }}" class="button primary small">Me déconnecter</a></li>
+                </ul>
+                <title>Espace Enseignant</title>
+            </header>
+
+            <!-- Content -->
+            <section>
+{% block body %}
+
+    <h3>Notifications</h3>
+    <div class="box">
+        {% for c in conv %}
+        <p>La convocation pour {{ c.idEleve.prenom }} {{ c.idEleve.nom }} a été approuvée par le parent pour la date convenu ({{ c.date|date('d-m-Y') }})</p>
+            {% endfor %}
+    </div>
+
+    <a href="{{ path('_espaceEns',{'id':ens.id}) }}">Retour</a>
+{% endblock %}
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="{{ path('_espaceEns',{'id':ens.id}) }}">Accueil</a></li>
+                    <li><a href="{{ path('_classeEns',{'id':ens.id}) }}">Emplois classes</a></li>
+                    <li><a href="{{ path('_planExam',{'id':ens.id}) }}">Planning examen</a></li>
+                    <li><a href="{{ path('_convParent',{'id':ens.id}) }}">Convocation parent</a></li>
+                    <li>
+                        <span class="opener">Absences</span>
+                        <ul>
+                            <li><a href="{{ path('_ajoutAbs',{'id':ens.id}) }}">Enregistrer absences </a></li>
+                            <li><a href="{{ path('_afficheAbs',{'id':ens.id}) }}">Consulter absences</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">Notes</span>
+                        <ul>
+                            <li><a href="{{ path('_ajoutNote',{'id':ens.id}) }}">Ajouter note</a></li>
+                            <li><a href="{{ path('_afficheNote',{'id':ens.id}) }}">Consulter note</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">Documents</span>
+                        <ul>
+                            <li><a href="{{ path('_ajoutDoc',{'id':ens.id}) }}">Nouveau document</a></li>
+                            <li><a href="{{ path('_afficheDoc',{'id':ens.id}) }}">Mes documents</a></li>
+                            <li><a href="{{ path('_rechDoc',{'id':ens.id}) }}">Rechercher</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Contact</h2>
+                </header>
+                <ul class="contact">
+                    <li class="fa-phone">{{ ens.idEcole.telephone }}</li>
+                    <li class="fa-home">{{ ens.idEcole.adresse }}<br />
+                    </li>
+                    <li class="fa-mail-forward">{{ ens.idEcole.email }}</li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy; Site pour gestion des écoles primaires .</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ asset('templateFront/assets/js/jquery.min.js') }}"></script>
+<script src={{ asset ("jquery-3.2.1.min.js") }}></script>
+<script src="{{ asset("jquery-ui.min.js") }}"></script>
+<script src="{{ asset('templateFront/assets/js/browser.min.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/breakpoints.min.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/util.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/main.js') }}"></script>
+
+</body>
+</html>

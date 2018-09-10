@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    {% block head %}
+    {% endblock %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="{{ asset('templateFront/assets/css/main.css') }}" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <a href="{{ path('_espaceEns',{'id':ens.id}) }}" class="logo"><strong>Gestion </strong>Scolaire</a>
+                <ul class="actions small" style="margin-left: 600px">
+                    <li>  <a href="{{ path('_home') }}" class="button primary small">Me déconnecter</a></li>
+                </ul>
+                <title>Espace Enseignant</title>
+            </header>
+
+            <!-- Content -->
+            <section>
+{% block body %}
+    <div class="content">
+        {% if app.session is not null and app.session.started %}
+        {% for flashMessage in app.session.flashbag.get('Notice') %}
+            <ul><li class="alert-success">
+                    {{flashMessage}}
+                </li></ul>
+        {% endfor%}
+
+        {% endif %}
+    </div>
+
+    <header class="main">
+        <h3>Notes Scolaires</h3>
+    </header>
+
+
+<form method="post" action="{{ path('_ajoutNote',{'id':ens.id}) }} " id="f1" name="f1">
+    <label>Veuillez sélectionnez une classe en premier:</label>
+    <select name="classe" id="classe" style="width:200px">
+        <option value="">Classe</option>
+        {% for c in cl %}
+            {% if cc == c.classeId.id %}
+                <option value="{{ c.classeId.id }}" selected>{{ c.classeId.niveau }}{{ c.classeId.nom }}</option>
+            {% else %}
+                <option value="{{ c.classeId.id }}">{{ c.classeId.niveau }}{{ c.classeId.nom }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <p>
+    </p>
+    <select name="matiere" id="matiere" required style="width:200px">
+        <option value="">Matière</option>
+        {% if m != null %}
+        <option value="{{ m.id }}" selected>{{ m.nom }}</option>
+        {% endif %}
+    </select>
+    <p>
+    </p>
+    <div id="tt" name="tt" >
+
+            {% if ty == 'Orale' %}
+        <select name="type" id="type" required style="width:200px">
+            <option value="">Type</option>
+            <option value="Orale" selected>Orale</option>
+            <option value="Ecrit">Ecrit</option>
+            <option value="Autre">Autre</option>
+        </select>
+            {% elseif ty == 'Ecrit' %}
+        <select name="type" id="type" required style="width:200px">
+            <option value="">Type</option>
+            <option value="Orale" >Orale</option>
+            <option value="Ecrit"selected>Ecrit</option>
+            <option value="Autre">Autre</option>
+        </select>
+            {% elseif ty == 'Autre' %}
+        <select name="type" id="type" required style="width:200px">
+            <option value="">Type</option>
+            <option value="Orale" >Orale</option>
+            <option value="Ecrit">Ecrit</option>
+            <option value="Autre" selected>Autre</option>
+        </select>
+                <input type="text" value="{{ at }}" style="width:200px" id="final" name="final">
+        {% else %}
+        <select name="type" id="type" required style="width:200px">
+            <option value="">Type</option>
+            <option value="Orale">Orale</option>
+            <option value="Ecrit">Ecrit</option>
+            <option value="Autre">Autre</option>
+        </select>
+        {% endif %}
+
+
+    </div>
+    <p>
+
+    </p>
+
+    <input type="submit" id="valider" name="valider" value="OK" style="width:80px;">
+</form>
+
+    <div>
+
+        {{ form_start(form) }}
+
+<form method="post" id="f2" name="f2" >
+
+        <table>
+            <thead>
+            <tr>
+                <th>Elève</th>
+                <th>Note</th>
+                <th>Remarque</th>
+                <th>Copie</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for e in elv %}
+                <tr>
+                  <td> <input type="text" disabled value="{{ e.prenom }} {{ e.nom }}"></td>
+                   <td> <input type="number"  min="0" max="20"  id="{{ e.id }}" name="{{ e.id }}" required></td>
+                   <td> <input type="text"  id="rq{{ e.id }}" name="rq{{ e.id }}"></td>
+                    <td><input type="file" id="fl{{ e.id }}" name="fl{{ e.id }}"></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    <p>
+    </p>
+    {{ form_label(form.fichier,'Corrigé:') }}
+    {{ form_errors(form.fichier) }}
+    {{ form_widget(form.fichier) }}
+    <p>
+    </p>
+        <input type="submit" value="Enregistrer" id="enreg" name="enreg">
+    <input type="hidden" id="cl" name="cl" >
+    <input type="hidden" id="mt" name="mt" >
+    <input type="hidden" id="1" name="1" >
+    <input type="hidden" id="2" name="2" >
+
+
+</form>
+        {{ form_end(form) }}
+
+    </div>
+
+    <script src={{ asset ("jquery-3.2.1.min.js") }}></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#enreg').click(function() {
+                $('#cl').val($('#classe').val());
+                $('#mt').val($('#matiere').val());
+                $('#1').val($('#type').val());
+                $('#2').val($('#final').val());
+
+
+            });
+        });
+        </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#valider').click(function() {
+                $('#1').val($('#type').val());
+                $('#mt').val($('#matiere').val());
+                $('#2').val($('#autre').val());
+
+
+            });
+        });
+    </script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $("#classe").change(function () {
+
+                    var response = $.ajax({
+                        url: '{{ path('_ajaxDoc') }}',
+                        data:{ 'input': $("#classe").val() },
+                        type: 'post',
+                        dataType: 'json',
+                        success: (function (response) {
+                            if (response.length>0)
+                            {   $('#matiere').empty();
+                                for (key in response){
+                                    var tmp = response[key];
+
+                                    $("#matiere").append('<option value=" '+tmp.matId.id +' ">' + tmp.matId.nom + '</option>')
+                                }}
+                        }),error: (function () {
+
+                        })
+                    })
+                });
+            })
+        </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#type").change(function () {
+                var r = $(this).val();
+                if (r == 'Autre'){
+                    $("#tt").append('<input type="text" placeholder="Veuilez indiquer le type" id="autre" name="autre" required  style="width:200px">')
+
+                }
+
+            })
+
+        })       </script>
+
+{% endblock %}
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="{{ path('_espaceEns',{'id':ens.id}) }}">Accueil</a></li>
+                    <li><a href="{{ path('_classeEns',{'id':ens.id}) }}">Emplois classes</a></li>
+                    <li><a href="{{ path('_planExam',{'id':ens.id}) }}">Planning examen</a></li>
+                    <li><a href="{{ path('_convParent',{'id':ens.id}) }}">Convocation parent</a></li>
+
+                    <li>
+                        <span class="opener">Notes</span>
+                        <ul>
+                            <li><a href="{{ path('_ajoutNote',{'id':ens.id}) }}">Ajouter note</a></li>
+                            <li><a href="{{ path('_afficheNote',{'id':ens.id}) }}">Consulter note</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">Documents</span>
+                        <ul>
+                            <li><a href="{{ path('_ajoutDoc',{'id':ens.id}) }}">Nouveau document</a></li>
+                            <li><a href="{{ path('_afficheDoc',{'id':ens.id}) }}">Mes documents</a></li>
+                            <li><a href="{{ path('_rechDoc',{'id':ens.id}) }}">Rechercher</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Contact</h2>
+                </header>
+                <ul class="contact">
+                    <li class="fa-phone">{{ ens.idEcole.telephone }}</li>
+                    <li class="fa-home">{{ ens.idEcole.adresse }}<br />
+                    </li>
+                    <li class="fa-mail-forward">{{ ens.idEcole.email }}</li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy; Site pour gestion des écoles primaires .</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ asset('templateFront/assets/js/jquery.min.js') }}"></script>
+<script src={{ asset ("jquery-3.2.1.min.js") }}></script>
+<script src="{{ asset("jquery-ui.min.js") }}"></script>
+<script src="{{ asset('templateFront/assets/js/browser.min.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/breakpoints.min.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/util.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/main.js') }}"></script>
+
+</body>
+</html>

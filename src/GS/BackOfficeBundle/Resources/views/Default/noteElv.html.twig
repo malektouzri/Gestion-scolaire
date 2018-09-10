@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    {% block head %}
+    {% endblock %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="{{ asset('templateFront/assets/css/main.css') }}" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <a href="{{ path('_espaceElv',{'id':elv.id}) }}" class="logo"><strong>Gestion </strong>Scolaire</a>
+                <ul class="actions small" style="margin-left: 600px">
+                    <li>  <a href="{{ path('_home') }}" class="button primary small">Me déconnecter</a></li>
+                </ul>
+                <title>Espace Elève</title>
+            </header>
+
+            <!-- Content -->
+            <section>
+{% block body %}
+    <div class="content">
+        {% if app.session is not null and app.session.started %}
+        {% for flashMessage in app.session.flashbag.get('Notice') %}
+            <ul><li class="alert-success">
+                    {{flashMessage}}
+                </li></ul>
+        {% endfor%}
+
+        {% for flashMessage in app.session.flashbag.get('Erreur') %}
+            <ul><li class="alert-danger">
+                    {{flashMessage}}
+                </li></ul>
+        {% endfor%}
+        {% endif %}
+    </div>
+
+    <header class="main">
+        <h3>Notes Scolaires</h3>
+    </header>
+
+
+    {% if note != null %}
+        <table>
+
+            <th>Matière</th>
+            <th>Coefficient</th>
+            <th>Note</th>
+            <th>Remarque</th>
+            <th>Correction</th>
+            {% for n in note %}
+                <tr>
+
+                    <td><input type="text" disabled value="{{ n.idMat.nom }}"></td>
+                    <td> <input type="text" disabled value="{{ n.idMat.coefficient }}"></td>
+                    <td> <input type="text" disabled value="{{ n.note }}"></td>
+                    <td> <input type="text" disabled value="{{ n.remarque }}"></td>
+                    <td>                <a href="{{ asset('uploads/pdf/' ~ n.idMat.fichier) }}" target="_blank">Corrigé {{ n.idMat.nom }} {{ n.type }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="{{ path('_espaceElv',{'id':elv.id}) }}">Accueil</a></li>
+                    <li><a href="{{ path('_afficheAbsElv',{'id':elv.id}) }}">Consulter Absences</a></li>
+                    <li><a href="{{ path('_noteElv',{'id':elv.id}) }}">Consulter Notes</a></li>
+                    <li><a href="{{ path('_planExamElv',{'id':elv.id}) }}">Planning examen</a></li>
+                    <li>
+                        <span class="opener">Documents</span>
+                        <ul>
+                            <li><a href="{{ path('_docElv',{'id':elv.id}) }}">Consulter documents</a></li>
+                            <li><a href="{{ path('_rechDocElv',{'id':elv.id}) }}">Rechercher document</a></li>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+            </nav>
+
+
+            <section>
+                <header class="major">
+                    <h2>Contact</h2>
+                </header>
+                <ul class="contact">
+                    <li class="fa-phone">{{ elv.idEcole.telephone }}</li>
+                    <li class="fa-home">{{ elv.idEcole.adresse }}<br />
+                    </li>
+                    <li class="fa-mail-forward">{{ elv.idEcole.email }}</li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy; Site pour gestion des écoles primaires .</p>
+            </footer>
+
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ asset('templateFront/assets/js/jquery.min.js') }}"></script>
+<script src={{ asset ("jquery-3.2.1.min.js") }}></script>
+<script src="{{ asset("jquery-ui.min.js") }}"></script>
+<script src="{{ asset('templateFront/assets/js/browser.min.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/breakpoints.min.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/util.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/main.js') }}"></script>
+
+</body>
+</html>

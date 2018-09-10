@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    {% block head %}
+    {% endblock %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="{{ asset('templateFront/assets/css/main.css') }}" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <a href="{{ path('_espaceEns',{'id':e.id}) }}" class="logo"><strong>Gestion </strong>Scolaire</a>
+                <ul class="actions small" style="margin-left: 600px">
+                    <li>  <a href="{{ path('_home') }}" class="button primary small">Me déconnecter</a></li>
+                </ul>
+                <title>Espace Enseignant</title>
+            </header>
+
+            <!-- Content -->
+            <section>
+                {% block body %}
+
+                    <div class="content">
+                        {% if app.session is not null and app.session.started %}
+                        {% for flashMessage in app.session.flashbag.get('Notice') %}
+                            <ul><li class="alert-success">
+                                    {{flashMessage}}
+                                </li></ul>
+                        {% endfor%}
+
+                        {% for flashMessage in app.session.flashbag.get('Erreur') %}
+                            <ul><li class="alert-danger">
+                                    {{flashMessage}}
+                                </li></ul>
+                        {% endfor%}
+                        {% endif %}
+                    </div>
+
+                    <a  href="{{ path('_espaceEns',{'id':e.id}) }}">Retour</a>
+
+                    <form method="post" >
+
+                        <label for="amdp">Ancien mot de passe: </label>
+                        <input type="password" name="amdp" id="amdp"  placeholder="saisissez ancien mot de passe"  required/>
+                        <label for="nmdp">Nouveau mot de passe: </label>
+                        <input type="password" name="nmdp" id="nmdp"  placeholder="nouveau mot de passe"/>
+
+                        <label for="cmdp">Confirmer nouveau mot de passe: </label>
+
+                        <input type="password" name="cmdp" id="cmdp" placeholder="confirmez nouveau mot de passe"/>
+
+                        <p>
+
+                        </p>
+                        <input type="submit" value="Valider" name="valider" id="valider">
+                    </form>
+
+                {% endblock %}
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="{{ path('_espaceEns',{'id':e.id}) }}">Accueil</a></li>
+                    <li><a href="{{ path('_classeEns',{'id':e.id}) }}">Emplois classes</a></li>
+                    <li><a href="{{ path('_planExam',{'id':e.id}) }}">Planning examen</a></li>
+                    <li><a href="{{ path('_convParent',{'id':e.id}) }}">Convocation parent</a></li>
+
+                    <li>
+                        <span class="opener">Notes</span>
+                        <ul>
+                            <li><a href="{{ path('_ajoutNote',{'id':e.id}) }}">Ajouter note</a></li>
+                            <li><a href="{{ path('_afficheNote',{'id':e.id}) }}">Consulter note</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">Documents</span>
+                        <ul>
+                            <li><a href="{{ path('_ajoutDoc',{'id':e.id}) }}">Nouveau document</a></li>
+                            <li><a href="{{ path('_afficheDoc',{'id':e.id}) }}">Mes documents</a></li>
+                            <li><a href="{{ path('_rechDoc',{'id':e.id}) }}">Rechercher</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Contact</h2>
+                </header>
+                <ul class="contact">
+                    <li class="fa-phone">{{ e.idEcole.telephone }}</li>
+                    <li class="fa-home">{{ e.idEcole.adresse }}<br />
+                    </li>
+                    <li class="fa-mail-forward">{{ e.idEcole.email }}</li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy; Site pour gestion des écoles primaires .</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ asset('templateFront/assets/js/jquery.min.js') }}"></script>
+<script src={{ asset ("jquery-3.2.1.min.js") }}></script>
+<script src="{{ asset("jquery-ui.min.js") }}"></script>
+<script src="{{ asset('templateFront/assets/js/browser.min.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/breakpoints.min.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/util.js') }}"></script>
+<script src="{{ asset('templateFront/assets/js/main.js') }}"></script>
+
+</body>
+</html>
